@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Watchlist</title>
+	</head>
+    <body></body>
+<h1 class="mt-4">Top 100 Movies</h1>
+<p class="lead mb-3">Welcome back</p>
+<a href="/users/logout" class="btn btn-secondary" style="float: right"
+	>Logout</a><br>
+<br><a href="/comment" class="btn btn-secondary" style="float: right"
+	>Comment Section</a>
+<div class=" container">    
+    <center>    
+    <div class="card" style="width: fit-content;">    
+        <div class="card-body">  
+            <h5>Add a movie to the list</h5>  
+         <form action="/movies/watchlist" method="POST">    
+                <div class="row">    
+                  <div class="form-group col-md-12">    
+                    <input type="text" class="form-control" name="movie" placeholder="Movie Name" required>    
+                  </div>    
+                </div>    
+                <div class="row">    
+                    <div class="form-group col-md-12"">    
+                        <input type="text" class="form-control" name="director" placeholder="Director Name" required>    
+                      </div>    
+                </div>    
+                <button type="submit">Submit</button>    
+              </form>     
+        </div>    
+      </div>    
+    </center>    
+    <br>    
+    <%if(data.length>0){%>    
+        <center>    
+        <div style="width:auto; border-style: solid;border-color: black;">    
+        <table class="table table-border table-hover">    
+            <thead class="bg-warning">    
+                <tr>    
+                    <th>    
+                        s.no    
+                    </th>    
+                    <th>    
+                        Movie    
+                    </th>    
+                    <th>    
+                        Director    
+                    </th>    
+                </tr>    
+            </thead>    
+            <tbody>    
+                <%for(var i=0;i< data.length;i++){%>    
+                <tr>    
+                    <td>    
+                        <%=i+1%>    
+                    </td>    
+                    <td>    
+                     <%=data[i].movie%>    
+                    </td>    
+                    <td>    
+                      <%=data[i].director%>    
+                    </td>    
+                </tr>    
+                <%}%>    
+            </tbody>    
+        </table>    
+    </div>    
+    </center>    
+    <%}%>    
+             
+    </div> 
+    </body>   
+</html>
